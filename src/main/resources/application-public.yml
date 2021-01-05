@@ -1,4 +1,4 @@
 spring:
   elasticsearch:
     rest:
-      uris: http://192.168.12.160:9200,http://192.168.12.160:9201,http://192.168.12.160:9202
+      uris: 集群的ip和端口
