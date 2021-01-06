@@ -113,4 +113,14 @@ public class SpringDataEsTest {
             System.out.println(hit.getContent().toString());
         });
     }
+
+    @Test
+    public void getGoods() {
+        String keyword = "a";
+        NativeSearchQuery searchQuery = new NativeSearchQueryBuilder()
+                .withQuery(QueryBuilders.multiMatchQuery(keyword, "name", "author", "intro"))
+                .build();
+        SearchHits<com.javademo.elasticsearch.server.qidian.entity.Goods> books = elasticsearchRestTemplate.search(searchQuery, com.javademo.elasticsearch.server.qidian.entity.Goods.class, IndexCoordinates.of("qi-dian-books"));
+        books.getSearchHits().forEach(System.out::println);
+    }
 }

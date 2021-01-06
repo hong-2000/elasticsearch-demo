@@ -19,10 +19,10 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(indexName = "qidian_books", shards = 5, replicas = 1, createIndex = true)
+@Document(indexName = "qi-dian-books", shards = 5, replicas = 1, createIndex = true)
 public class Goods {
     @Id
-    private Integer id;
+    private String id;
 
     /**
      * 图片
@@ -36,7 +36,7 @@ public class Goods {
     @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String name;
 
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String author;
 
     /**

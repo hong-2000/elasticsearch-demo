@@ -1,13 +1,14 @@
 package com.javademo.elasticsearch.server.qidian.controller;
 
 import com.javademo.elasticsearch.server.qidian.entity.Goods;
-import com.javademo.elasticsearch.server.qidian.utils.HtmlParseUtil;
+import com.javademo.elasticsearch.server.qidian.service.IndexService;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,6 +20,13 @@ import java.util.List;
 @ResponseBody
 @Controller
 public class IndexController {
+
+    private final IndexService indexService;
+
+    public IndexController(IndexService indexService) {
+        this.indexService = indexService;
+    }
+
     /**
      * 后续可引入依赖，运用注解注释
      *
@@ -29,14 +37,14 @@ public class IndexController {
      */
     @GetMapping({"/{keyword}", "index/{keyword}"})
     public List<Goods> testParseController(@PathVariable(name = "keyword") String keyword) {
-        List<Goods> goodsList = null;
+        List<Goods> goodsList = new ArrayList<>();
         // 后续可引入依赖 hibernate-validator，运用注解校验
         int lenMax = 20;
         int lenMin = 0;
         if (ObjectUtils.isEmpty(keyword) || keyword.length() <= lenMin || keyword.length() >= lenMax) {
-            return null;
+            return goodsList;
         }
-        goodsList = HtmlParseUtil.getHtmlByJsoup(keyword);
+        goodsList = indexService.getGoods(keyword);
         return goodsList;
     }
 }
