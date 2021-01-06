@@ -1,15 +1,15 @@
-package cn.zqhblog.elasticsearch.dao;
+package com.javademo.elasticsearch.server.springdataes.dao;
 
-import cn.zqhblog.elasticsearch.entity.Goods;
+import com.javademo.elasticsearch.server.springdataes.entity.Goods;
 import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 import java.util.List;
 
 /**
- * @author QingHong
+ * @author hong-2000
+ * @email 2560612959@qq.com
  * @description
- * @QQ 2560612959
  * @create 2021/1/4 14:42
  */
 public interface GoodsRepository extends ElasticsearchRepository<Goods, Integer> {

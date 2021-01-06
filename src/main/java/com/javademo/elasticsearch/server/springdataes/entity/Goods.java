@@ -1,4 +1,4 @@
-package cn.zqhblog.elasticsearch.entity;
+package com.javademo.elasticsearch.server.springdataes.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -10,10 +10,10 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
- * @author QingHong
+ * @author hong-2000
+ * @email 2560612959@qq.com
  * @description
- * @QQ 2560612959
- * @create 2021/1/4 13:55
+ * @create 2021/1/4 14:42
  */
 @Document(indexName = "shop1", shards = 5, replicas = 1, createIndex = true)
 public class Goods implements Serializable {
@@ -27,6 +27,7 @@ public class Goods implements Serializable {
 
     /**
      * 商品名称
+     * ik的分词算法：ik_smart和ik_max_word，最少切分，最细粒度划分
      */
     @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String goodsName;

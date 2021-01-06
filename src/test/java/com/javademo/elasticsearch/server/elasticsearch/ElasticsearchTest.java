@@ -1,4 +1,4 @@
-package cn.zqhblog.elasticsearch;
+package com.javademo.elasticsearch.server.elasticsearch;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.bulk.BulkRequest;
@@ -32,10 +32,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author QingHong
+ * @author hong-2000
+ * @email 2560612959@qq.com
  * @description
- * @QQ 2560612959
- * @create 2020/12/31 17:17
+ * @create 2021/1/4 14:42
  */
 public class ElasticsearchTest {
     private RestHighLevelClient client = null;
@@ -102,10 +102,9 @@ public class ElasticsearchTest {
      * 批量查询
      *
      * @return: void
-     * @Method testBatchCURD
-     * @Author ZhaoQingHong
      * @Version 1.0
-     * @Date 2021/1/4 13:07
+     * @author hong-2000
+     * @date 2021/1/6 10:01
      */
     @Test
     public void testBatchCURD() throws IOException {
@@ -122,10 +121,9 @@ public class ElasticsearchTest {
      * search搜索
      *
      * @return: void
-     * @Method testSearch
-     * @Author ZhaoQingHong
      * @Version 1.0
-     * @Date 2021/1/4 13:08
+     * @author hong-2000
+     * @date 2021/1/6 10:02
      */
     @Test
     public void testSearch() throws IOException {
@@ -136,10 +134,9 @@ public class ElasticsearchTest {
      * 匹配查询
      *
      * @return: void
-     * @Method testSearchMatch
-     * @Author ZhaoQingHong
      * @Version 1.0
-     * @Date 2021/1/4 13:06
+     * @author hong-2000
+     * @date 2021/1/6 10:02
      */
     @Test
     public void testSearchMatch() throws IOException {
@@ -171,10 +168,9 @@ public class ElasticsearchTest {
      * 匹配、分页、排序
      *
      * @return: void
-     * @Method testSearchPage
-     * @Author ZhaoQingHong
      * @Version 1.0
-     * @Date 2021/1/4 13:09
+     * @author hong-2000
+     * @date 2021/1/6 10:02
      */
     @Test
     public void testSearchPage() throws IOException {
@@ -212,10 +208,9 @@ public class ElasticsearchTest {
      * 高亮
      *
      * @return: void
-     * @Method testSearchHighlight
-     * @Author ZhaoQingHong
      * @Version 1.0
-     * @Date 2021/1/4 13:32
+     * @author hong-2000
+     * @date 2021/1/6 10:03
      */
     @Test
     public void testSearchHighlight() throws IOException {

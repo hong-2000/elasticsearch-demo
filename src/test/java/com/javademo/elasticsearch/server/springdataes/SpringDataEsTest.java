@@ -1,7 +1,8 @@
-package cn.zqhblog.elasticsearch;
+package com.javademo.elasticsearch.server.springdataes;
 
-import cn.zqhblog.elasticsearch.dao.GoodsRepository;
-import cn.zqhblog.elasticsearch.entity.Goods;
+import com.javademo.elasticsearch.ElasticsearchApplication;
+import com.javademo.elasticsearch.server.springdataes.dao.GoodsRepository;
+import com.javademo.elasticsearch.server.springdataes.entity.Goods;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.junit.Test;
@@ -24,10 +25,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author QingHong
+ * @author hong-2000
+ * @email 2560612959@qq.com
  * @description
- * @QQ 2560612959
- * @create 2021/1/4 14:09
+ * @create 2021/1/4 14:42
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ElasticsearchApplication.class)
