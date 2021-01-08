@@ -1,11 +1,10 @@
-package com.javademo.elasticsearch;
+package com.demo.elasticsearch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author hong-2000
- * @email 2560612959@qq.com
  * @description
  * @create 2021/1/4 14:42
  */

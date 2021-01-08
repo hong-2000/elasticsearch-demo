@@ -1,7 +1,7 @@
-package com.javademo.elasticsearch.server.qidian.controller;
+package com.demo.elasticsearch.server.qidian.controller;
 
-import com.javademo.elasticsearch.server.qidian.entity.Goods;
-import com.javademo.elasticsearch.server.qidian.service.IndexService;
+import com.demo.elasticsearch.server.qidian.entity.Goods;
+import com.demo.elasticsearch.server.qidian.service.IndexService;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +13,6 @@ import java.util.List;
 
 /**
  * @author hong-2000
- * @email 2560612959@qq.com
  * @description 业务管理
  * @create 2021/1/5 15:47
  */

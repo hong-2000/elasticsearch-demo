@@ -1,7 +1,7 @@
-package com.javademo.elasticsearch.server.qidian.service.impl;
+package com.demo.elasticsearch.server.qidian.service.impl;
 
-import com.javademo.elasticsearch.server.qidian.entity.Goods;
-import com.javademo.elasticsearch.server.qidian.service.EsService;
+import com.demo.elasticsearch.server.qidian.entity.Goods;
+import com.demo.elasticsearch.server.qidian.service.EsService;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
  * @author hong-2000
  * @version 1.0
  * @description
- * @email 2560612959@qq.com
  * @create 2021/1/6 13:12
  */
 @Service

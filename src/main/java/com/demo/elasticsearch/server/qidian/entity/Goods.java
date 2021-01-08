@@ -1,4 +1,4 @@
-package com.javademo.elasticsearch.server.qidian.entity;
+package com.demo.elasticsearch.server.qidian.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,6 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 
 /**
  * @author hong-2000
- * @email 2560612959@qq.com
  * @description 商品实体
  * @create 2021/1/5 15:32
  */

@@ -1,4 +1,4 @@
-package com.javademo.elasticsearch.server.springdataes.entity;
+package com.demo.elasticsearch.server.springdataes.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -11,7 +11,6 @@ import java.util.Objects;
 
 /**
  * @author hong-2000
- * @email 2560612959@qq.com
  * @description
  * @create 2021/1/4 14:42
  */

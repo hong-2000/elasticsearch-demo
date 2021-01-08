@@ -1,8 +1,8 @@
-package com.javademo.elasticsearch.server.springdataes;
+package com.demo.elasticsearch.server.springdataes;
 
-import com.javademo.elasticsearch.ElasticsearchApplication;
-import com.javademo.elasticsearch.server.springdataes.dao.GoodsRepository;
-import com.javademo.elasticsearch.server.springdataes.entity.Goods;
+import com.demo.elasticsearch.ElasticsearchApplication;
+import com.demo.elasticsearch.server.qidian.entity.Goods;
+import com.demo.elasticsearch.server.springdataes.dao.GoodsRepository;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.junit.Test;
@@ -26,7 +26,6 @@ import java.util.List;
 
 /**
  * @author hong-2000
- * @email 2560612959@qq.com
  * @description
  * @create 2021/1/4 14:42
  */
@@ -48,11 +47,11 @@ public class SpringDataEsTest {
     @Test
     public void testIndex() {
         // 获取索引对象
-        IndexOperations indexOperations = elasticsearchRestTemplate.indexOps(Goods.class);
+        IndexOperations indexOperations = elasticsearchRestTemplate.indexOps(com.demo.elasticsearch.server.springdataes.entity.Goods.class);
         // 创建索引
         indexOperations.create();
         // 获取映射
-        Document mapping = indexOperations.createMapping(Goods.class);
+        Document mapping = indexOperations.createMapping(com.demo.elasticsearch.server.springdataes.entity.Goods.class);
         // 将映射放入索引
         indexOperations.putMapping(mapping);
 
@@ -63,32 +62,32 @@ public class SpringDataEsTest {
 
     @Test
     public void testRepository() {
-        ArrayList<Goods> goodsList = new ArrayList<>();
-        goodsList.add(new Goods(1, "测试1", new BigDecimal("199"), "png"));
-        goodsList.add(new Goods(2, "测试2", new BigDecimal("299"), "png"));
+        ArrayList<com.demo.elasticsearch.server.springdataes.entity.Goods> goodsList = new ArrayList<>();
+        goodsList.add(new com.demo.elasticsearch.server.springdataes.entity.Goods(1, "测试1", new BigDecimal("199"), "png"));
+        goodsList.add(new com.demo.elasticsearch.server.springdataes.entity.Goods(2, "测试2", new BigDecimal("299"), "png"));
         goodsRepository.saveAll(goodsList);
 
-        List<Goods> goods = goodsRepository.findByGoodsName("%测试%");
+        List<com.demo.elasticsearch.server.springdataes.entity.Goods> goods = goodsRepository.findByGoodsName("%测试%");
         goods.forEach(System.out::println);
 
-        Goods byIdValue = goodsRepository.findByIdValue(1);
+        com.demo.elasticsearch.server.springdataes.entity.Goods byIdValue = goodsRepository.findByIdValue(1);
         System.out.println(byIdValue);
     }
 
     @Test
     public void testCURD() {
         // save兼顾修改
-        elasticsearchRestTemplate.save(new Goods(100, "测试10", new BigDecimal("199"), "png"));
+        elasticsearchRestTemplate.save(new com.demo.elasticsearch.server.springdataes.entity.Goods(100, "测试10", new BigDecimal("199"), "png"));
 
         //elasticsearchRestTemplate.delete("10", IndexCoordinates.of("shop1"));
 
         NativeSearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(QueryBuilders.matchQuery("goodsName", "测试")).build();
-        SearchHits<Goods> result = elasticsearchRestTemplate.search(searchQuery, Goods.class, IndexCoordinates.of("shop1"));
+        SearchHits<com.demo.elasticsearch.server.springdataes.entity.Goods> result = elasticsearchRestTemplate.search(searchQuery, com.demo.elasticsearch.server.springdataes.entity.Goods.class, IndexCoordinates.of("shop1"));
         result.getSearchHits().forEach(System.out::println);
 
         elasticsearchRestTemplate.delete(
                 new NativeSearchQueryBuilder().withQuery(QueryBuilders.matchQuery("goodsName", "测试")).build(),
-                Goods.class,
+                com.demo.elasticsearch.server.springdataes.entity.Goods.class,
                 IndexCoordinates.of("shop1"));
     }
 
@@ -102,7 +101,7 @@ public class SpringDataEsTest {
                 //.withHighlightFields(new HighlightBuilder.Field("goodsName"))
                 .withHighlightBuilder(new HighlightBuilder().field("goodsName").preTags("<span style='color:red'>").postTags("</span>"))
                 .build();
-        SearchHits<Goods> result = elasticsearchRestTemplate.search(searchQuery, Goods.class, IndexCoordinates.of("shop1"));
+        SearchHits<com.demo.elasticsearch.server.springdataes.entity.Goods> result = elasticsearchRestTemplate.search(searchQuery, com.demo.elasticsearch.server.springdataes.entity.Goods.class, IndexCoordinates.of("shop1"));
 //        result.getSearchHits().forEach(System.out::println);
         result.forEach(hit -> {
             System.out.println("score-->" + hit.getScore());
@@ -120,7 +119,7 @@ public class SpringDataEsTest {
         NativeSearchQuery searchQuery = new NativeSearchQueryBuilder()
                 .withQuery(QueryBuilders.multiMatchQuery(keyword, "name", "author", "intro"))
                 .build();
-        SearchHits<com.javademo.elasticsearch.server.qidian.entity.Goods> books = elasticsearchRestTemplate.search(searchQuery, com.javademo.elasticsearch.server.qidian.entity.Goods.class, IndexCoordinates.of("qi-dian-books"));
+        SearchHits<Goods> books = elasticsearchRestTemplate.search(searchQuery, Goods.class, IndexCoordinates.of("qi-dian-books"));
         books.getSearchHits().forEach(System.out::println);
     }
 }

@@ -1,6 +1,6 @@
-package com.javademo.elasticsearch.server.qidian.service;
+package com.demo.elasticsearch.server.qidian.service;
 
-import com.javademo.elasticsearch.server.qidian.entity.Goods;
+import com.demo.elasticsearch.server.qidian.entity.Goods;
 
 import java.util.List;
 
@@ -8,7 +8,6 @@ import java.util.List;
  * @author hong-2000
  * @version 1.0
  * @description
- * @email 2560612959@qq.com
  * @create 2021/1/6 13:12
  */
 public interface EsService {

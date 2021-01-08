@@ -1,4 +1,4 @@
-package com.javademo.elasticsearch.server.elasticsearch;
+package com.demo.elasticsearch.server.elasticsearch;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.bulk.BulkRequest;
@@ -33,7 +33,6 @@ import java.util.Map;
 
 /**
  * @author hong-2000
- * @email 2560612959@qq.com
  * @description
  * @create 2021/1/4 14:42
  */

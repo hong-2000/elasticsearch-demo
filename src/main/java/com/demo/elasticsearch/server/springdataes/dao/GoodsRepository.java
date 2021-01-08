@@ -1,6 +1,6 @@
-package com.javademo.elasticsearch.server.springdataes.dao;
+package com.demo.elasticsearch.server.springdataes.dao;
 
-import com.javademo.elasticsearch.server.springdataes.entity.Goods;
+import com.demo.elasticsearch.server.springdataes.entity.Goods;
 import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * @author hong-2000
- * @email 2560612959@qq.com
  * @description
  * @create 2021/1/4 14:42
  */

@@ -1,6 +1,6 @@
-package com.javademo.elasticsearch.server.qidian;
+package com.demo.elasticsearch.server.qidian;
 
-import com.javademo.elasticsearch.ElasticsearchApplication;
+import com.demo.elasticsearch.ElasticsearchApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -15,7 +15,6 @@ import java.io.IOException;
 
 /**
  * @author hong-2000
- * @email 2560612959@qq.com
  * @description
  * @create 2021/1/4 14:42
  */
