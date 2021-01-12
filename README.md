@@ -125,6 +125,6 @@ bin/logstash -e 'input { stdin {} } output { stdout {} }'<br>
 3. elasticsearch的elasticsearch-env<br>
         · JAVA_HOME="/usr/local/elasticsearch/elasticsearch-7.4.2/jdk"<br>
 4. IK的IKAnalyzer.cfg.xml<br>
-        · entry key="ext_dict" zhaoqinghong.dic /entry<br>
+        · entry key="ext_dict" xxx.dic /entry<br>
 
 
